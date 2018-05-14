@@ -5,10 +5,13 @@
   <thead>
     <tr>
       <th> Tasks </th>
-      <th> Completed! </th>
+      <th> Completed? </th>
     </tr>
   </thead>
   <tbody>
-    <td>Groceries</td>
+    <%= render @items %>
   </tbody>
 </table>
+
+<p> Create a new item!</p>
+<%= render partial: 'items/form' %>
