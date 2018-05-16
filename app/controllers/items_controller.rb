@@ -12,9 +12,21 @@ class ItemsController < ApplicationController
        redirect_to current_user
      else
        flash.now[:alert] = "There was an error saving the item. Please try again."
-       render current_user
+       redirect_to current_user
      end
-   end
+  end
+
+  def destroy
+    @item = current_user.items.find(params[:id])
+
+    if @item.destroy
+      flash[:notice] = "\"#{@item.name}\" was deleted successfully."
+      redirect_to current_user
+    else
+      flash.now[:alert] = "There was an error deleting the item."
+      redirect_to current_user
+    end
+  end
 
    private
 

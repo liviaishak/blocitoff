@@ -1,3 +1,10 @@
-<ul>
-  <li><%= item.name %></li><br>
-</ul>
+<div class="media-body">
+  <h4 class="media-heading">
+    <%= item.name %>
+    <%= link_to "completed", [current_user, item], method: :delete, class: 'glyphicon glyphicon-ok' %>
+  </h4>
+</div>
+
+<script>
+  blocitoff.report('completed');
+</script>
