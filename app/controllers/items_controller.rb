@@ -6,26 +6,12 @@ class ItemsController < ApplicationController
 
   def create
     @item = current_user.items.new(item_params)
-
-     if @item.save
-       flash[:notice] = "Item was saved."
-       redirect_to current_user
-     else
-       flash.now[:alert] = "There was an error saving the item. Please try again."
-       redirect_to current_user
-     end
+    @item.save
   end
 
   def destroy
     @item = current_user.items.find(params[:id])
-
-    if @item.destroy
-      flash[:notice] = "\"#{@item.name}\" was deleted successfully."
-      redirect_to current_user
-    else
-      flash.now[:alert] = "There was an error deleting the item."
-      redirect_to current_user
-    end
+    @item.destroy
   end
 
    private

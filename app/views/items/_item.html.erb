@@ -1,10 +1,6 @@
-<div class="media-body">
+<div id=<%="item-#{item.id}"%> class="media-body">
   <h4 class="media-heading">
     <%= item.name %>
-    <%= link_to "completed", [current_user, item], method: :delete, class: 'glyphicon glyphicon-ok' %>
+    <%= link_to "completed", [current_user, item], remote: true, method: :delete, class: 'glyphicon glyphicon-ok' %>
   </h4>
 </div>
-
-<script>
-  blocitoff.report('completed');
-</script>
