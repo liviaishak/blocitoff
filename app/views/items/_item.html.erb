@@ -1,6 +1,6 @@
 <div id=<%="item-#{item.id}"%> class="media-body">
   <h4 class="media-heading">
-    <%= item.name %>
+    <%= item.name %><p>Time left before auto delete in: <%= distance_of_time_in_words(item.updated_at + 7.days, Time.now) %></p>
     <%= link_to "completed", [current_user, item], remote: true, method: :delete, class: 'glyphicon glyphicon-ok' %>
   </h4>
 </div>
